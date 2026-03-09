@@ -1,0 +1,231 @@
+#:kivy 2.1.0
+
+<MainUI>:
+    ShopScreen:
+    ProductionScreen:
+    InventoryScreen:
+
+
+<ShopScreen>:
+    name:"shop"
+
+    BoxLayout:
+        orientation:"vertical"
+
+        Label:
+            id: money_label
+            text:"₹ 1000"
+            size_hint_y:None
+            height:"50dp"
+            font_size:"22sp"
+
+        Label:
+            text:"Factory Empire"
+            size_hint_y:None
+            height:"60dp"
+            font_size:"24sp"
+
+        ScrollView:
+
+            GridLayout:
+                cols:1
+                size_hint_y:None
+                height:self.minimum_height
+                spacing:10
+                padding:20
+
+                Button:
+                    text:"Buy Wood (₹5)"
+                    size_hint_y:None
+                    height:"60dp"
+                    on_press: root.buy("wood",5)
+
+                Button:
+                    text:"Buy Iron Ore (₹10)"
+                    size_hint_y:None
+                    height:"60dp"
+                    on_press: root.buy("iron_ore",10)
+
+                Button:
+                    text:"Buy Copper Ore (₹10)"
+                    size_hint_y:None
+                    height:"60dp"
+                    on_press: root.buy("copper_ore",10)
+
+                Button:
+                    text:"Buy Stone (₹5)"
+                    size_hint_y:None
+                    height:"60dp"
+                    on_press: root.buy("stone",5)
+
+                Button:
+                    text:"Buy Sand (₹3)"
+                    size_hint_y:None
+                    height:"60dp"
+                    on_press: root.buy("sand",3)
+
+                Button:
+                    text:"Buy Coal (₹8)"
+                    size_hint_y:None
+                    height:"60dp"
+                    on_press: root.buy("coal",8)
+
+                Button:
+                    text:"Buy Oil (₹15)"
+                    size_hint_y:None
+                    height:"60dp"
+                    on_press: root.buy("oil",15)
+
+                Button:
+                    text:"Buy Water (₹2)"
+                    size_hint_y:None
+                    height:"60dp"
+                    on_press: root.buy("water",2)
+
+
+        BoxLayout:
+            size_hint_y:None
+            height:"60dp"
+
+            Button:
+                text:"SHOP"
+
+            Button:
+                text:"PRODUCTION"
+                on_press: app.root.current="production"
+
+            Button:
+                text:"INVENTORY"
+                on_press: app.root.current="inventory"
+
+
+
+<ProductionScreen>:
+    name:"production"
+
+    BoxLayout:
+        orientation:"vertical"
+
+        Label:
+            text:"PRODUCTION"
+            size_hint_y:None
+            height:"60dp"
+
+        ScrollView:
+
+            GridLayout:
+                cols:1
+                size_hint_y:None
+                height:self.minimum_height
+                spacing:10
+                padding:20
+
+                Button:
+                    text:"Produce Plank"
+                    size_hint_y:None
+                    height:"60dp"
+                    on_press: root.plank()
+
+                Button:
+                    text:"Produce Iron Plate"
+                    size_hint_y:None
+                    height:"60dp"
+                    on_press: root.iron_plate()
+
+                Button:
+                    text:"Produce Glass"
+                    size_hint_y:None
+                    height:"60dp"
+                    on_press: root.glass()
+
+                Button:
+                    text:"Produce Machine Part"
+                    size_hint_y:None
+                    height:"60dp"
+                    on_press: root.machine_part()
+
+                Button:
+                    text:"Produce Engine"
+                    size_hint_y:None
+                    height:"60dp"
+                    on_press: root.engine()
+
+
+        BoxLayout:
+            size_hint_y:None
+            height:"60dp"
+
+            Button:
+                text:"SHOP"
+                on_press: app.root.current="shop"
+
+            Button:
+                text:"PRODUCTION"
+
+            Button:
+                text:"INVENTORY"
+                on_press: app.root.current="inventory"
+
+
+
+<InventoryScreen>:
+    name:"inventory"
+
+    BoxLayout:
+        orientation:"vertical"
+
+        Label:
+            text:"INVENTORY"
+            size_hint_y:None
+            height:"60dp"
+
+        Label:
+            id:inventory_label
+            text:"Inventory Loading..."
+
+        GridLayout:
+            cols:2
+            size_hint_y:None
+            height:"300dp"
+            spacing:10
+            padding:20
+
+            Button:
+                text:"Sell Wood"
+                on_press: root.sell("wood")
+
+            Button:
+                text:"Sell Plank"
+                on_press: root.sell("plank")
+
+            Button:
+                text:"Sell Iron Plate"
+                on_press: root.sell("iron_plate")
+
+            Button:
+                text:"Sell Glass"
+                on_press: root.sell("glass")
+
+            Button:
+                text:"Sell Machine Part"
+                on_press: root.sell("machine_part")
+
+            Button:
+                text:"Sell Engine"
+                on_press: root.sell("engine")
+
+
+        BoxLayout:
+            size_hint_y:None
+            height:"60dp"
+
+            Button:
+                text:"SHOP"
+                on_press: app.root.current="shop"
+
+            Button:
+                text:"PRODUCTION"
+                on_press: app.root.current="production"
+
+            Button:
+                text:"INVENTORY"
